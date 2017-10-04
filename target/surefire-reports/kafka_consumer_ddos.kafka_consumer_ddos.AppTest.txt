@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: kafka_consumer_ddos.kafka_consumer_ddos.AppTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 sec
