@@ -20,7 +20,7 @@ public class DdosDetection {
 	 * @return Attacker Ips
 	 */
 
-	public void findDdosDetection(String record) {
+	public boolean findDdosDetection(String record) {
 		record = record.replace("(", "");
 		record = record.replace(")", "");
 		String[] recordArray = record.split(",");
@@ -32,9 +32,17 @@ public class DdosDetection {
 
 			if (validateIpwithMasterList(recordArray[0])
 					|| Integer.parseInt(recordArray[1]) >= threashold)
-				writeResultToFile(recordArray);
+			{
+					writeResultToFile(recordArray);
+					return true;
+			}
+			else
+				return false;
 		} else
+		{
 			System.out.println("Not an attacker");
+			return false;
+		}
 
 	}
 
@@ -45,7 +53,7 @@ public class DdosDetection {
 	 * @return Boolean value of if IP is in the master list of attacker Ips
 	 */
 
-	private boolean validateIpwithMasterList(String ip) {
+	public boolean validateIpwithMasterList(String ip) {
 		// for now creating a list, ideally read it from a database or a master
 		// list file.
 		List<String> iplist = new ArrayList<String>();

@@ -15,7 +15,7 @@ public class KafkaConsumerDdos {
 	public void KafkaConsumerFunc() {
 		Properties props = new Properties();
 		props.put("bootstrap.servers", "localhost:9092");
-		props.put("group.id", "test125"); // Group id of the consumer group
+		props.put("group.id", "test128"); // Group id of the consumer group
 		props.put("enable.auto.commit", "true");
 		props.put("auto.commit.interval.ms", "1000");
 		props.put("auto.offset.reset", "earliest");
@@ -47,8 +47,10 @@ public class KafkaConsumerDdos {
 
 				}
 			} catch (Exception e) {
-				System.out.println("Exception" + e.getMessage());
-			}
+			      // ignore for shutdown 
+		    } finally {
+		    	kafkaConsumer.close();
+		    }
 		}
 
 	}
