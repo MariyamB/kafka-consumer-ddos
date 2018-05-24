@@ -15,7 +15,7 @@ public class KafkaConsumerDdos {
 	public void KafkaConsumerFunc() {
 		Properties props = new Properties();
 		props.put("bootstrap.servers", "localhost:9092");
-		props.put("group.id", "test128"); // Group id of the consumer group
+		props.put("group.id", "test67"); // Group id of the consumer group
 		props.put("enable.auto.commit", "true");
 		props.put("auto.commit.interval.ms", "1000");
 		props.put("auto.offset.reset", "earliest");
@@ -26,7 +26,7 @@ public class KafkaConsumerDdos {
 				"org.apache.kafka.common.serialization.StringDeserializer");
 		DdosDetection ddosDetection = new DdosDetection();// Object creation for
 															// Ddos class
-		KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(props);// Object
+		KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<String, String>(props);// Object
 																					// creation
 																					// for
 																					// kafka
@@ -49,7 +49,7 @@ public class KafkaConsumerDdos {
 			} catch (Exception e) {
 			      // ignore for shutdown 
 		    } finally {
-		    	kafkaConsumer.close();
+		    	//kafkaConsumer.close();
 		    }
 		}
 

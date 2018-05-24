@@ -29,9 +29,10 @@ public class DdosDetection {
 		// when the ip is found in the master list or the ip hit acount is
 		// greater than the threshold set
 		if (findIpAddressValid(recordArray)) {
-
-			if (validateIpwithMasterList(recordArray[0])
-					|| Integer.parseInt(recordArray[1]) >= threashold)
+//
+//			if (validateIpwithMasterList(recordArray[0])
+//					|| Integer.parseInt(recordArray[1]) >= threashold)
+				if ( Integer.parseInt(recordArray[1]) >= threashold)
 			{
 					writeResultToFile(recordArray);
 					return true;
